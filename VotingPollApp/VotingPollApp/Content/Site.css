@@ -1,0 +1,78 @@
+﻿
+.input-width {
+    width: 300px;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+.margin-top-4{
+    margin-top:100px;
+}
+.polls {
+    list-style: none;
+}
+.margin_right{
+    margin-right: 5px;
+}
+/*Makes everything line up on the dashboard page*/
+.poll_view{
+    margin-left: -40px;
+}
+.poll_view_btn{
+    margin-left: 40px;
+}
+.poll-vote{
+    margin-bottom: -20px;
+}
+.poll-choices{
+    border:solid lightgrey 1px;
+    margin-left: -40px;
+    padding-left:-400px;
+    margin-top: 5px;
+    text-align: center;
+}
+.poll-link{
+    color:#DD7230;
+}
+.delete_btn{
+    color: #DD7230;
+}
+a:hover  {
+    text-decoration: none;
+}
+.jumbotron{  /* Moves jumbotron to meet with the nav bar */
+    margin-top: -20px;
+    background-color: #BDBBB0;
+    color:#07070A;
+}
+.navbar{
+    background-color: #8A897C;
+    color: #07070A;
+}
+.navbar-brand a, .navbar-nav i{
+    color:#07070A;
+}
+.navbar-nav li:hover{
+    background-color: #FCF7FF;
+}
+input{
+    color: #07070A;
+}
+body {
+    color:#FEFFFE;
+    background-color: #353535;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 51px;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}

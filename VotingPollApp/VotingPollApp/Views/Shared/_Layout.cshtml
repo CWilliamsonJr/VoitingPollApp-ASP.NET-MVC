@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="">
+                <div class="navbar-brand"><a class="nounderline" href="#">Voting Poll Web App</a></div>
+                <ul class="nav navbar-nav navbar-right margin_right">
+                    <li><a href="#" role="button"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Logout</i> </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class='jumbotron'>
+        <div class='container'>
+            <div class='h2'>@ViewBag.View <small>@ViewBag.Explaination</small></div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="row">
+            @RenderBody()
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
