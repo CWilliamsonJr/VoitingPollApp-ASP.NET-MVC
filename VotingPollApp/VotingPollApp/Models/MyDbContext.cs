@@ -15,7 +15,7 @@ namespace VotingPollApp.Models
 
         public DbSet <Polls> Polls { get; set; }
         public DbSet <Questions> Questions { get; set; }
-        public DbSet <Users> Users { get; set; }
+        //public DbSet <Users> Users { get; set; }
         public DbSet <Voters> Voters { get; set; }
     }
 }
