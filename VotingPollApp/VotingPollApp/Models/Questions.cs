@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,11 +7,10 @@ namespace VotingPollApp.Models
 {
     public class Questions
     {
-       
-        [Key]
-        public int QuestionId { get; set; }
-        //[ForeignKey("Users")]
-        //public int UserId { get; set; }
+        private MyDbContext db = new MyDbContext();
+
+        public int Id { get; set; }
+        public Users User { get; set; }
         public string Question { get; set; }
     }
 }

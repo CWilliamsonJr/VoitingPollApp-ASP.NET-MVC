@@ -1,136 +1,102 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using VotingPollApp.Models;
 
 namespace VotingPollApp.Controllers
 {
     public class PollsController : Controller
     {
-        private VotingAppEntities db = new VotingAppEntities();
-
         // GET: Polls
         public ActionResult Index()
         {
-            var polls = db.Polls.Include(p => p.Question).Include(p => p.User);
-            return View(polls.ToList());
+            return View();
         }
 
         // GET: Polls/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Poll poll = db.Polls.Find(id);
-            if (poll == null)
-            {
-                return HttpNotFound();
-            }
-            return View(poll);
+            return View();
         }
 
         // GET: Polls/Create
-        public ActionResult Create()
+        public ActionResult Make()
         {
-            ViewBag.Question_Id = new SelectList(db.Questions, "Id", "Question1");
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "User_Name");
             return View();
         }
 
         // POST: Polls/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Choice,Votes,User_Id,Question_Id")] Poll poll)
+        public ActionResult Make(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Polls.Add(poll);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            ViewBag.Question_Id = new SelectList(db.Questions, "Id", "Question1", poll.Question_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "User_Name", poll.User_Id);
-            return View(poll);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Polls/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Poll poll = db.Polls.Find(id);
-            if (poll == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Question_Id = new SelectList(db.Questions, "Id", "Question1", poll.Question_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "User_Name", poll.User_Id);
-            return View(poll);
+            return View();
         }
 
         // POST: Polls/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Choice,Votes,User_Id,Question_Id")] Poll poll)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(poll).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            ViewBag.Question_Id = new SelectList(db.Questions, "Id", "Question1", poll.Question_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "User_Name", poll.User_Id);
-            return View(poll);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Polls/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Poll poll = db.Polls.Find(id);
-            if (poll == null)
-            {
-                return HttpNotFound();
-            }
-            return View(poll);
+            return View();
         }
 
         // POST: Polls/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Poll poll = db.Polls.Find(id);
-            db.Polls.Remove(poll);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
-        }
+            catch
+            {
+                return View();
+            }
+        }  
+
+        // GET: EditPoll
+        //public ActionResult Edit() // View for editing the poll
+        //{
+        //    return View();
+        //}
+
+        //// GET: ViewResults
+        //public ActionResult Results() // View for seeing the results
+        //{
+        //    return View();
+        //}
+        
     }
 }
