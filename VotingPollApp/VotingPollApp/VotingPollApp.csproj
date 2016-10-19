@@ -64,8 +64,6 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -107,10 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\VotingApp.mdf" />
-    <Content Include="App_Data\VotingApp_log.ldf">
-      <DependentUpon>VotingApp.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -134,24 +128,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <EntityDeploy Include="Models\VotingPollApp.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VotingPollApp.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\VotingPollApp.edmx.diagram">
-      <DependentUpon>VotingPollApp.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Models\VotingPollApp.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VotingPollApp.edmx</DependentUpon>
-      <LastGenOutput>VotingPollApp.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\VotingPollApp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VotingPollApp.edmx</DependentUpon>
-      <LastGenOutput>VotingPollApp.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -168,42 +145,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Poll.cs">
-      <DependentUpon>VotingPollApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Question.cs">
-      <DependentUpon>VotingPollApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>VotingPollApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Voter.cs">
-      <DependentUpon>VotingPollApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VotingPollApp.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VotingPollApp.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VotingPollApp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VotingPollApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VotingPollApp.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VotingPollApp.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Polls.cs" />
+    <Compile Include="Models\Questions.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\Voters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Polls\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Polls\Edit.cshtml" />
+    <Content Include="Views\Polls\Make.cshtml" />
+    <Content Include="Views\Polls\Results.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -211,9 +169,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
